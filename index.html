@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function isPalindrome(str) {
+    // Remove non-alphanumeric characters and convert to lowercase
+    const cleanedStr = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+    
+    // Check if the cleaned string is a palindrome
+    for (let i = 0; i < Math.floor(cleanedStr.length / 2); i++) {
+        if (cleanedStr[i] !== cleanedStr[cleanedStr.length - 1 - i]) {
+            return false;
+        }
+    }
+    return true;
+}
+console.log(isPalindrome("level")); // true
+console.log(isPalindrome("A man, a plan, a canal, Panama")); // true
+console.log(isPalindrome("racecar")); // true
+console.log(isPalindrome("hello")); // false
+console.log(isPalindrome("12321")); // true
+console.log(isPalindrome("12345")); // false
+
+
+
+
+
+function findMinMax(numbers) {
+    if (numbers.length === 0) {
+        return "Array is empty";
+    }
+    
+    let min = numbers[0];
+    let max = numbers[0];
+    
+    for (let i = 1; i < numbers.length; i++) {
+        if (numbers[i] < min) {
+            min = numbers[i];
+        }
+        if (numbers[i] > max) {
+            max = numbers[i];
+        }
+    }
+    
+    return { min, max };
+}
+console.log(findMinMax([1, 2, 3, 4, 5])); // { min: 1, max: 5 }
+console.log(findMinMax([-10, 0, 15, 30, -5])); // { min: -10, max: 30 }
+console.log(findMinMax([100, 20, 3, 45, 10])); // { min: 3, max: 100 }
+console.log(findMinMax([5])); // { min: 5, max: 5 }
+console.log(findMinMax([])); // "Array is empty"
+
+
+
+
+
+
+
+
+
+function findMissingNumber(series) {
+    for (let i = 0; i < series.length - 1; i++) {
+        if (series[i + 1] - series[i] !== 1) {
+            return series[i] + 1;
+        }
+    }
+    return "No missing number found";
+}
+console.log(findMissingNumber([11, 12, 14, 15, 16, 18, 19, 20])); // Output: 13
+console.log(findMissingNumber([1, 2, 3, 4, 5])); // Output: "No missing number found"
+console.log(findMissingNumber([1, 2, 4, 5, 6])); // Output: 3
+console.log(findMissingNumber([11, 13, 14, 15, 16, 17, 18, 19])); // Output: 12
+
+    </script>
+</body>
+</html>
